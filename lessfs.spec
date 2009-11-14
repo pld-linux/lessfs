@@ -8,8 +8,15 @@ Group:		Applications
 Source0:	http://dl.sourceforge.net/lessfs/%{name}-%{version}.tar.gz
 # Source0-md5:	4490beecfb438fa18bb66366f202198c
 URL:		http://www.lessfs.com/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	bzip2-devel
 BuildRequires:	libfuse-devel >= 2.8.0
-BuildRequires:	tokyocabinet-devel
+BuildRequires:	libtool
+BuildRequires:	openssl-devel
+BuildRequires:	pkgconfig
+BuildRequires:	tokyocabinet-devel >= 1.4.21
+BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
