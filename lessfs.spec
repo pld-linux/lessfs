@@ -5,7 +5,7 @@ Version:	0.9.2
 Release:	1
 License:	GPL v3
 Group:		Applications
-Source0:	http://dl.sourceforge.net/lessfs/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/lessfs/%{name}-%{version}.tar.gz
 # Source0-md5:	0e3d9ce24b68ac71d495011061f272b0
 URL:		http://www.lessfs.com/
 BuildRequires:	autoconf
