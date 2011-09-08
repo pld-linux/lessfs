@@ -1,12 +1,12 @@
 Summary:	Lessfs is an inline data deduplicating filesystem
 Summary(pl.UTF-8):	Lessfs is an inline data deduplicating filesystem.
 Name:		lessfs
-Version:	1.1.2
+Version:	1.5.3
 Release:	1
 License:	GPL v3
 Group:		Applications
 Source0:	http://downloads.sourceforge.net/lessfs/%{name}-%{version}.tar.gz
-# Source0-md5:	fb583b45966423349cb166cc72221494
+# Source0-md5:	3d93decd87b7d89500ed6c8658bab851
 URL:		http://www.lessfs.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -54,3 +54,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_sbindir}/*
 %{_mandir}/man1/lessfs.1*
+%{_mandir}/man1/replogtool.1*
