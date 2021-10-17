@@ -1,0 +1,62 @@
+diff -u lessfs-1.7.0/lib_cfg.c lessfs-1.7.0-gcc10/lib_cfg.c
+--- lessfs-1.7.0/lib_cfg.c	2011-09-30 20:13:08.000000000 +0200
++++ lessfs-1.7.0-gcc10/lib_cfg.c	2021-10-17 21:12:40.750623419 +0200
+@@ -34,6 +34,8 @@
+ #include "lib_str.h"
+ #include "retcodes.h"
+ 
++struct configdata *config;
++
+ int r_env_cfg(char *configfile)
+ {
+     FILE *config;
+diff -u lessfs-1.7.0/lib_cfg.h lessfs-1.7.0-gcc10/lib_cfg.h
+--- lessfs-1.7.0/lib_cfg.h	2012-04-21 18:09:54.000000000 +0200
++++ lessfs-1.7.0-gcc10/lib_cfg.h	2021-10-17 21:12:31.999872984 +0200
+@@ -88,7 +88,7 @@
+ // Counter is increase by normal ops, decreased by truncation.
+ // (background) Truncation will therefore become slower when other tasks are running.
+ };
+-struct configdata *config;
++extern struct configdata *config;
+ 
+ int read_s_cfg(char *cfgfile, char *value, int size);
+ int read_m_cfg(char *cfgfile, char *value, char *value2, int size);
+diff -u lessfs-1.7.0/lib_tc.c lessfs-1.7.0-gcc10/lib_tc.c
+--- lessfs-1.7.0/lib_tc.c	2013-11-16 05:09:05.000000000 +0100
++++ lessfs-1.7.0-gcc10/lib_tc.c	2021-10-17 21:15:33.016360983 +0200
+@@ -74,14 +74,14 @@
+ extern int max_threads;
+ extern char *passwd;
+ 
+-TCHDB *dbb;
+-TCHDB *dbu;
+-TCHDB *dbp;
+-TCBDB *dbl;
+-TCHDB *dbs;
+-TCHDB *dbdta;
+-TCBDB *dbdirent;
+-TCBDB *freelist;
++extern TCHDB *dbb;
++extern TCHDB *dbu;
++extern TCHDB *dbp;
++extern TCBDB *dbl;
++extern TCHDB *dbs;
++extern TCHDB *dbdta;
++extern TCBDB *dbdirent;
++extern TCBDB *freelist;
+ 
+ extern TCTREE *workqtree;       // Used to buffer incoming data (writes) 
+ extern TCTREE *readcachetree;   // Used to cache chunks of data that are likely to be read
+@@ -96,9 +96,9 @@
+ extern unsigned long long nextoffset;
+ int written = 0;
+ 
+-const char *offset_lockedby;
++extern const char *offset_lockedby;
+ 
+-u_int32_t db_flags, env_flags;
++extern u_int32_t db_flags, env_flags;
+ 
+ int btree_test_transaction(TCBDB * bdb)
+ {
